@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>REGISTRATION</title>
+  <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a class="logo" href="#">RDF<span>.</span></a>
+      <ul class="menu-links">
+        <span id="close-menu-btn" class="material-symbols-outlined">close</span>
+        <li><a href="#">HOME</a></li>
+        <li><a href="https://www.mod.gov.rw/">MINADEF</a></li>
+        <li><a href="#">REQUIREMENTS</a></li>
+        <li><a href="form7.php">APPLY HERE</a></li>
+        <li><a href="contactus.php">CONTACT US</a></li>
+      </ul>
+      <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="content">
+      <h2 style="color: cyan;">Manage Registers</h2>
+      <p id="greeting" style="color: rgb(200, 107, 180);"></p>
+      <a href="login.php"><button>SRART</button></a>
+      <a href="register.html"><button>REGISTER</button></a>
+    </div>
+  </section>
+
+  <script>
+    // Get the current UTC hour
+    const currentHour = new Date().getUTCHours();
+
+    // Define the greeting based on the time of day
+    let greetingMessage;
+    if (currentHour >= 5 && currentHour < 12) {
+      greetingMessage = 'Good morning to you';
+    } else if (currentHour >= 12 && currentHour < 18) {
+      greetingMessage = 'Good afternoon to you';
+    } else {
+      greetingMessage = 'Good evening to you';
+    }
+
+    // Display the greeting in the paragraph with id="greeting"
+    document.getElementById('greeting').textContent = greetingMessage;
+  </script>
+</body>
+</html>

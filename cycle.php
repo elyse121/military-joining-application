@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Application Form</title>
+    <style>
+        /* Basic form styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative;
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+
+        .toggle-buttons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode:hover {
+            background-color: #555;
+        }
+
+        .white-mode {
+            background-color: #fff;
+            color: #333;
+            border: none;
+        }
+
+        .white-mode:hover {
+            background-color: #eee;
+        }
+
+        /* Form styles */
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="toggle-buttons">
+            <button class="dark-mode" onclick="changeBackground('dark')">Dark</button>
+            <button class="white-mode" onclick="changeBackground('white')">White</button>
+        </div>
+
+        <h2>Registration Form</h2>
+        <?php
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Set up your database connection
+    $servername = "your_servername";
+    $username = "your_username";
+    $password = "your_password";
+    $dbname = "kwiga";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Get form data
+    $fullname = $_POST['fullname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $gender = $_POST['gender'];
+
+    // SQL query to insert data into the 'form' table
+    $sql = "INSERT INTO kwigaa (fullname, email, password, gender) VALUES ('$fullname', '$email', '$password', '$gender')";
+
+    // Execute SQL query
+    if ($conn->query($sql) === TRUE) {
+        echo "New record inserted successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    // Close connection
+    $conn->close();
+}
+?>
+
+        <form id="registrationForm" action="#" method="post">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <script>
+        function changeBackground(color) {
+            document.body.style.backgroundColor = color;
+            var container = document.querySelector('.container');
+            if (color === 'dark') {
+                container.style.backgroundColor = '#333';
+                container.style.color = '#fff';
+            } else {
+                container.style.backgroundColor = '#fff';
+                container.style.color = '#333';
+            }
+        }
+    </script>
+
+</body>
+</html>

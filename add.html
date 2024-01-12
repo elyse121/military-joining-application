@@ -1,0 +1,259 @@
+<html>
+<html lang="en">
+
+</html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+
+    <title> dashboard</title>
+    <link href="dashboardmanage.css" rel="stylesheet">
+   <style>
+    .toggle-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+    border: none;
+}
+
+.dark-mode:hover {
+    background-color: #555;
+}
+
+.white-mode {
+    background-color: #fff;
+    color: #333;
+    border: none;
+}
+
+.white-mode:hover {
+    background-color: #eee;
+}
+ 
+
+
+h2 {
+  text-align: center;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+} 
+
+
+h2 {
+  text-align: center;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #313231;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #313231;
+
+}
+.admin-link {
+  margin-top: 300px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    width: 150px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+   </style>
+   
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-clinic-medical"></i>
+                        <div class="title">RDF APPLICATION</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="indexdashboard1.html">
+                        <i class="fas fa-th-large"></i>
+                        <div class="title">    Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="manage.php">
+                        <i class="fas fa-stethoscope"></i>
+                        <div class="title">Manage</div>
+                    </a>
+                </li>
+                <li>
+                  <a href="long.php" target="_self">
+
+                        <i class="fas fa-user-md"></i>
+                        <div class="title">Long</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="timings.html" target="_self">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <div class="title">Set-time</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="emails.php">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <div class="title">Emails</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        <div class="title">Settings</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question"></i>
+                        <div class="title">Help</div>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="main">
+            <div class="top-bar">
+                <div class="input-box">
+                    <i class="uil uil-search"></i>
+                    <input type="text" placeholder="Search here..." />
+                    <button class="button">Search</button>
+                </div>
+                <i class="fas fa-bell"></i>
+                <div class="user">
+                  <div class="toggle-buttons">
+                    <button class="dark-mode" onclick="changeBackground('dark')">Dark</button>
+                    <button class="white-mode" onclick="changeBackground('white')">White</button>
+                </div>
+                
+                                </div>
+
+
+
+
+
+
+
+
+
+                                
+                                <form action="process.php" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="password">army number:</label>
+    <input type="password" id="password" name="armyno" required>
+
+
+    <input type="submit" value="Add Admin">
+  </form>
+              
+  <a href="admin-page-url" class="admin-link">
+    all admins
+</a>
+            </div>
+           
+            
+             
+            </div>
+        </div>
+</body>
+
+</html>
